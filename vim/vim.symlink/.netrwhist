@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/views'
+let g:netrw_dirhist_2='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz'
+let g:netrw_dirhist_3='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/templates'
+let g:netrw_dirhist_4='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/views'
+let g:netrw_dirhist_5='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/views/sitemap'
+let g:netrw_dirhist_6='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/views'
+let g:netrw_dirhist_7='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz'
+let g:netrw_dirhist_8='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/views'
+let g:netrw_dirhist_9='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz'

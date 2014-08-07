@@ -1,0 +1,1 @@
+../bundle/hlint/plugin/hlint.vim
