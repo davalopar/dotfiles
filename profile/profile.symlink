@@ -23,4 +23,4 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-/usr/bin/setxkbmap -option "ctrl:nocaps"
+/usr/bin/setxkbmap -option caps:hyper
