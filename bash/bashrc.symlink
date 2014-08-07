@@ -68,3 +68,8 @@ else
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+if [[ -f ~/.motd ]]
+then
+  source ~/.motd
+fi
