@@ -66,8 +66,12 @@ link_file () {
         skip=true;
 
       else
-
-        user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        if [ -d "$src" ]
+        then
+          user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all, [m]erge with backup (overwriting collisions)?"
+        else
+          user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        fi
         read -n 1 action
 
         case "$action" in
@@ -83,6 +87,12 @@ link_file () {
             skip=true;;
           S )
             skip_all=true;;
+          m )
+            if [ -d `$src` ]
+            then
+              backup=true
+              merge=true
+            fi;;
           * )
             ;;
         esac
@@ -103,8 +113,20 @@ link_file () {
 
     if [ "$backup" == "true" ]
     then
-      mv "$dst" "${dst}.backup"
-      success "moved $dst to ${dst}.backup"
+      if [ -e "${dst}.backup" ]
+      then
+        backupcounter=1
+        while [ -e "${dst}.backup.$backupcounter" ]
+        do
+          backupcounter=$((backupcounter+1))
+        done
+        mv "$dst" "${dst}.backup.$backupcounter"
+        backupdir="${dst}.backup.$backupcounter"
+      else
+        mv "$dst" "${dst}.backup"
+        backupdir="${dst}.backup"
+      fi
+      success "moved $dst to $backupdir"
     fi
 
     if [ "$skip" == "true" ]
@@ -117,6 +139,32 @@ link_file () {
   then
     ln -s "$1" "$2"
     success "linked $1 to $2"
+  fi
+
+  # Keep existing files/folders unless they clash with dotfiles
+  # in which case we overwrite existing with the stuff in repo
+  if [ "$merge" == "true" ]
+  then
+    for oldf in `ls -A $backupdir`
+    do
+      # If the thing in the backup doesn't exist in the repo
+      # then copy it into the repo.
+      if [ ! -e "$dst/$oldf" ]
+      then
+        if [ -d "$backupdir/$oldf" ]
+        then
+          cp -r "$backupdir/$oldf" "$dst/$oldf"
+        else
+          cp "$backupdir/$oldf" "$dst/$oldf"
+        fi
+
+        success "merged old $oldf into dotfiles"
+      # otherwise, ignore the old one and keep the new one
+      else
+        success "collision on ${oldf}: keeping the one in the repo"
+      fi
+    done
+    merge=false
   fi
 }
 
