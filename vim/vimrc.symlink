@@ -53,7 +53,7 @@ EOF
 endif
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -81,6 +81,11 @@ Bundle 'L9'
 Bundle 'TaskList.vim'
 Bundle 'Latex-Text-Formatter'
 
+" Pathogen load
+"
+call pathogen#infect()
+call pathogen#helptags()
+
 filetype plugin indent on
 syntax enable
 
@@ -105,7 +110,7 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 " Make syntastic work nicer
 let g:syntastic_enable_balloons = 1
-"let g:pymode_lint_ignore = "C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511"
+"let g:pymode_lint_ignore = 'C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511C0110,W0702,W0511'
 " pylint gives me the shits.
 let g:syntastic_python_checkers = ['flake8', 'pyflakes']
 " Don't whinge about c++11, you brat!

@@ -68,14 +68,3 @@ else
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-echo "COMP1927"
-echo "--------"
-echo "1. Test your own work before submitting! I'll ask to see your tests."
-echo "2. Labs are due Sunday. Not week x+1"
-echo "3. Do the tute questions before the tute, rather than during or after"
-echo "4. Marking scheme is OGRE (outstanding, great, reasonable, eurgh)."
-echo "   That means that I can and will give 11/10 for expectional work."
-echo "   Please, let me give you 11/10."
-echo "5. For the week02 lab, you need to attempt to explain results, not just"
-echo "   throw numbers into a file and say 'Done'"
