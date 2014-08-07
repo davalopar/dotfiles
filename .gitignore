@@ -7,3 +7,6 @@ atom.symlink/themes
 git/gitconfig.symlink
 
 vim/vim.symlink/bundle/*
+
+config/config.symlink/*
+!config/config.symlink/awesome
