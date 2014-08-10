@@ -77,8 +77,8 @@
 # ######################
 
 # Linux
-.*
-!.gitignore
+#.*
+#!.gitignore
 *~
 
 # Windows
