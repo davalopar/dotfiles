@@ -1,10 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/rafi/git_stuff/coffeedate/server/CoffeeDate'
-let g:netrw_dirhist_2='/home/rafi/git_stuff/coffeedate/server/CoffeeDate/timetable'
-let g:netrw_dirhist_3='/home/rafi/git_stuff/coffeedate/server/CoffeeDate'
-let g:netrw_dirhist_4='/home/rafi/git_stuff/coffeedate/server/CoffeeDate/timetable'
-let g:netrw_dirhist_5='/home/rafi/git_stuff/coffeedate/server/CoffeeDate'
-let g:netrw_dirhist_6='/home/rafi/git_stuff/coffeedate/server/CoffeeDate/static'
-let g:netrw_dirhist_7='/home/rafi/git_stuff/coffeedate/server/CoffeeDate/static/css'
-let g:netrw_dirhist_8='/home/rafi/git_stuff/coffeedate/server/CoffeeDate/templates/calendar_view'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/rafi/git_stuff/stickiskinz/WebApp/StickiSkinz/static/css'
+let g:netrw_dirhist_2='/home/rafi/.dotfiles/git'
