@@ -1,0 +1,63 @@
+[user]
+   email = rafiblecher@gmail.com
+   name = Rafi
+[core]
+   editor = vim
+   excludesfile = ~/dotfiles/gitignore_global
+[diff]
+   tool = vimdiff
+   renames = copies  # Allow git diff to detect copies and renames
+[difftool]
+   prompt = false
+[merge]
+   tool = vimdiff
+   stat = true  # Show diff after merge
+[pager]
+   diff = diff-highlight | less  # Per word diff highlighting
+[rerere]
+   enabled = true  # Record resolved conflicts
+[color]  # Use colored output if possible
+   diff = auto  # diff, log and show
+   grep = auto
+   showbranch = auto
+   interactive = auto  # Interactive prompts.
+   ui = auto  # Default for all options not separately set.
+   pager = true  # Output colors to pager if used.
+[color "branch"]  # Colors for git branch output.
+   current = green bold
+   local = blue
+   remote = yellow
+[color "status"]  # Colors for git status output.
+   added = yellow  # Files added but not committed.
+   changed = red  # Files changed but not added or committed.
+   untracked = cyan  # Untracked files.
+   branch = blue  # Current branch.
+[advice]
+   statusHints = false  # Disable basic help on git status.
+[help]
+   autocorrect = 0  # Show corrected version of mistyped commands.
+[push]
+   default = simple  # Pushes current branch to upstream branch of same name by default.
+[alias]
+   st = status
+   # Git branch management
+   br = branch
+   ca = commit -am
+   c = commit -m
+   sb = show-branch
+   # Checkout
+   co = checkout
+   undo = reset --soft HEAD^ # Removes last commit, but does not change files
+   revert = reset --hard HEAD  # DELETES ALL UNCOMMITTED CHANGES.
+   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+   leg = log --color --graph --pretty=format:'%Cred[%h]%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --stat
+   la = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all
+   llg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --all --simplify-by-decoration
+   ls = log --stat
+   df = diff -w  # Hide whitespace in diff
+   db = diff --word-diff-regex=[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+  # Alternative diff formatting
+   dc = diff -w --cached  # Show changes in staged
+   dn = diff --name-only  # Just list changed files.
+   rem = remote -v
+
+# vim: syntax=gitconfig
