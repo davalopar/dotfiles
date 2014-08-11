@@ -1,6 +1,8 @@
 [user]
    email = rafiblecher@gmail.com
-   name = Rafi
+   name = Rafi Blecher
+[credential]
+   helper = cache
 [core]
    editor = vim
    excludesfile = ~/dotfiles/gitignore_global
