@@ -6,6 +6,11 @@ atom.symlink/themes
 
 # git/gitconfig.symlink
 
+# this file appears from awesome/bin.symlink
+git/bin.symlink/run_once
+# and this file appears from git/bin.symlink
+awesome/bin.symlink/diff-highlight
+
 vim/vim.symlink/bundle/*
 vim/vim.symlink/.netrwhist
 

@@ -393,9 +393,9 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.util.spawn_with_shell("redshift")
-awful.util.spawn_with_shell("dropbox start")
-awful.util.spawn_with_shell("xfce4-power-manager")
+awful.util.spawn_with_shell("run_once redshift")
+awful.util.spawn_with_shell("run_once dropbox start")
+awful.util.spawn_with_shell("run_once xfce4-power-manager")
 awful.util.spawn_with_shell("ck-launch-session")
-awful.util.spawn_with_shell("feh --bg-scale /mnt/media/Pictures/wallpaper-2842086.jpg")
-awful.util.spawn_with_shell("nm-applet")
+awful.util.spawn_with_shell("run_once feh --bg-scale /mnt/media/Pictures/wallpaper-2842086.jpg")
+awful.util.spawn_with_shell("run_once nm-applet")
