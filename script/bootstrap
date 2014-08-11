@@ -70,7 +70,7 @@ link_file () {
           S )
             skip_all=true;;
           m )
-            if [ -d `$src` ]
+            if [ -d "$src" ]
             then
               backup=true
               merge=true
