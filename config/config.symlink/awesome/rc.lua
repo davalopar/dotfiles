@@ -181,7 +181,7 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
-        volume_widget,
+        -- volume_widget,
         mylayoutbox[s],
         mytextclock,
         s == 1 and mysystray or nil,
@@ -260,7 +260,13 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+                end),
+    awful.key({ }, "XF86AudioRaiseVolume", function()
+        awful.util.spawn("amixer set Master 9%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+        awful.util.spawn("amixer set Master 9%-") end),
+    awful.key({ }, "XF86AudioMute", function ()
+        awful.util.spawn("amixer -D pulse set Master toggle") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -320,16 +326,7 @@ for i = 1, keynumber do
                       if client.focus and tags[client.focus.screen][i] then
                           awful.client.toggletag(tags[client.focus.screen][i])
                       end
-                  end)),
-        -- Custom audio keys
-        --awful.key({ }, "XF86AudioRaiseVolume", function ()
-        --    awful.util.spawn("amixer set Master 9%+") end),
-        awful.key({ }, "XF86AudioLowerVolume", function()
-            awful.util.spawn_with_shell("/usr/bin/amixer set Master 9%+") end),
-        awful.key({ }, "XF86AudioRaiseVolume", function ()
-            awful.util.spawn_with_shell("/usr/bin/amixer set Master 9%-") end),
-        awful.key({ }, "XF86AudioMute", function ()
-            awful.util.spawn_with_shell("/usr/bin/amixer sset Master toggle") end)
+                  end))
 end
 
 clientbuttons = awful.util.table.join(
@@ -397,5 +394,5 @@ awful.util.spawn_with_shell("run_once redshift")
 awful.util.spawn_with_shell("run_once dropbox start")
 awful.util.spawn_with_shell("run_once xfce4-power-manager")
 awful.util.spawn_with_shell("ck-launch-session")
-awful.util.spawn_with_shell("run_once feh --bg-scale /mnt/media/Pictures/wallpaper-2842086.jpg")
+awful.util.spawn_with_shell("feh --bg-scale /mnt/media/Pictures/wallpaper-2842086.jpg")
 awful.util.spawn_with_shell("run_once nm-applet")
