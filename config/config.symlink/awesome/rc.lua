@@ -11,7 +11,7 @@ require("naughty")
 require("debian.menu")
 
 -- Load custom audio
--- require("volume")
+require("volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -102,7 +102,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, "%a %b %d, %H:%M:%S", 1)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -181,9 +181,9 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
-        -- volume_widget,
         mylayoutbox[s],
         mytextclock,
+        volume_widget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -262,11 +262,11 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
                 end),
     awful.key({ }, "XF86AudioRaiseVolume", function()
-        awful.util.spawn("amixer set Master 9%+") end),
+        awful.util.spawn("amixer set Master 9%+", false) end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-        awful.util.spawn("amixer set Master 9%-") end),
+        awful.util.spawn("amixer set Master 9%-", false) end),
     awful.key({ }, "XF86AudioMute", function ()
-        awful.util.spawn("amixer -D pulse set Master toggle") end)
+        awful.util.spawn("amixer -D pulse set Master toggle", false) end)
 )
 
 clientkeys = awful.util.table.join(
