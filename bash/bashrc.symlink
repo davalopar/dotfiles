@@ -55,9 +55,9 @@ if ${use_color} ; then
   fi
 
   if [[ ${EUID} == 0 ]] ; then
-    PS1='${debian_chroot:+($debian_chroot)}\${COLOUR_RED}\h\${COLOUR_BLUE} \W \$${COLOUR_RESET} '
+    PS1='${debian_chroot:+($debian_chroot)}\[${COLOUR_RED}\]\h\[${COLOUR_BLUE}\] \W \$\[${COLOUR_RESET}\] '
   else
-    PS1="${debian_chroot:+($debian_chroot)}${COLOUR_GREEN}\u@\h${COLOUR_BLUE} \w\$(git_color)\$(__git_ps1) \$${COLOUR_RESET} "
+    PS1="${debian_chroot:+($debian_chroot)}\[${COLOUR_GREEN}\]\u@\h\[${COLOUR_BLUE}\] \w\[\$(git_color)\]\$(__git_ps1) \$\[${COLOUR_RESET}\] "
   fi
 
   alias ls='ls --color=auto'
