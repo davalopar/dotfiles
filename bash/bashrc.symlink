@@ -2,6 +2,7 @@
 COLOUR_YELLOW="\033[0;93m"
  COLOUR_GREEN="\033[0;32m"
  COLOUR_OCHRE="\033[38;5;95m"
+COLOUR_ORANGE="\033[38;5;172m"
   COLOUR_BLUE="\033[0;34m"
  COLOUR_WHITE="\033[0;37m"
  COLOUR_RESET="\033[0m"
@@ -12,6 +13,8 @@ function git_color {
 
   if [[ "$git_status_error" ]]; then
     echo -n
+  elif [[ $git_status =~ "diverged" ]]; then
+    echo -e $COLOUR_ORANGE
   elif [[ ! $git_status =~ "working directory clean" ]]; then
     echo -e $COLOUR_RED
   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
