@@ -76,5 +76,5 @@ fi
 
 if [[ -f ~/.motd ]]
 then
-  source ~/.motd
+  cat ~/.motd
 fi
