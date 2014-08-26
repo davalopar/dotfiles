@@ -9,5 +9,6 @@ sudo apt-get install nemo-dropbox
 sudo apt-get install pgf texlive-latex-extra
 sudo apt-get install python-pip python-virtualenv python-dev
 sudo apt-get install redshift
+add-apt-repository -y ppa:shutter/ppa > /dev/null 2>&1
 sudo apt-get install shutter
 sudo apt-get install vim exuberant-ctags tidy
