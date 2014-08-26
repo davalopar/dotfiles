@@ -163,7 +163,7 @@ install_dotfiles () {
 }
 
 setup_gitconfig () {
-  info 'setup gitconfig'
+  info 'setup gitconfig\n'
 
   git_credential='cache'
 
@@ -176,11 +176,23 @@ setup_gitconfig () {
   sed -e "s/name = .*/name = $git_authorname/g" -e "s/email = .*/email = $git_authoremail/g" -e "s/helper = .*/helper = $git_credential/g" git/gitconfig.symlink.scaffold > git/gitconfig.symlink
   rm git/gitconfig.symlink.scaffold
 
-  success 'gitconfig'
+  success 'gitconfig setup success'
 }
 
-install_dotfiles
+setup_vim () {
+  info 'setup vim\n'
+  mkdir -p "$HOME/.vim/tmp"
+  mkdir -p "$HOME/.vim/bundle"
+  if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  fi
+  vim +BundleInstall +qall
+  success 'vim setup success'
+}
+
 setup_gitconfig
+install_dotfiles
+setup_vim
 
 echo ''
 echo '  All installed!'
