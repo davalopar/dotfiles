@@ -18,6 +18,7 @@ set foldenable
 set foldmethod=syntax
 set foldopen=block,hor,percent,quickfix,tag
 set foldlevel=1
+set conceallevel=2
 
 " Backup
 set noswapfile
@@ -32,10 +33,6 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-" To make this work, pip install --user git+git://github.com/Lokaltog/powerline
-" python from powerline.vim import setup as powerline_setup
-" python powerline_setup()
-" python del powerline_setup
 set term=xterm-256color
 
 " Now, make python work with virtualenvs:
@@ -76,6 +73,7 @@ Bundle 'vim-scripts/promela.vim'
 Bundle 'vim-scripts/hlint'
 Bundle 'Lokaltog/vim-easymotion'
 colorscheme jellybeans
+au VimEnter * hi Conceal ctermfg=231 ctermbg=233
 
 " vim-scripts
 Bundle 'L9'
