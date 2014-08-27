@@ -1,8 +1,14 @@
 [user]
-   email = rafiblecher@gmail.com
-   name = Rafi Blecher
+   name = Davina Adisusila
+	 email = dadisusila@atlassian.com
 [credential]
    helper = cache
+[difftool "sourcetree"]
+   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+   path = 
+[mergetool "sourcetree"]
+   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+   trustExitCode = true
 [core]
    editor = vim
    excludesfile = ~/dotfiles/gitignore_global

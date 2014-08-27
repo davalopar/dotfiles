@@ -1,3 +1,7 @@
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+fi
+
    COLOUR_RED="\033[0;31m"
 COLOUR_YELLOW="\033[0;93m"
  COLOUR_GREEN="\033[0;32m"
@@ -41,9 +45,6 @@ function git_color {
 #}
 
 PROMPT_DIRTRIM=2
-if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
-fi
 
 if ${use_color} ; then
   # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
@@ -63,7 +64,7 @@ if ${use_color} ; then
     PS1="${debian_chroot:+($debian_chroot)}\[${COLOUR_GREEN}\]\u@\h\[${COLOUR_BLUE}\] \w\[\$(git_color)\]\$(__git_ps1) \$\[${COLOUR_RESET}\] "
   fi
 
-  alias ls='ls --color=auto'
+  alias ls='ls -G'
   alias grep='grep --colour=auto'
 else
   if [[ ${EUID} == 0 ]] ; then
